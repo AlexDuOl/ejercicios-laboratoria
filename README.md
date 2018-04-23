@@ -1,1 +1,1 @@
-# react
+# ejercicios-laboratoria
