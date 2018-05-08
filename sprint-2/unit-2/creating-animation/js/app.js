@@ -25,6 +25,8 @@ window.board = {
 			}
 			element.appendChild(row);
 		}
+		this.x=Math.floor(this.width/2);
+		this.y=Math.floor(this.height/2);
 		this.move(0,0);
 	},
 
