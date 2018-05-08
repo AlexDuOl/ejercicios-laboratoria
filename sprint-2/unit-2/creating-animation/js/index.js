@@ -20,9 +20,10 @@ window.onload = function() {
   });
 
   let tick = setInterval(function(){
-    if ( !board.move() ){
+    if ( !board.move() && (board.speedX!==0 || board.speedY!==0) ){
       clearInterval(tick);
       alert('You Lose!');
     }
   },100);
+
 };

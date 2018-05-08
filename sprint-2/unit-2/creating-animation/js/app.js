@@ -38,7 +38,7 @@ window.board = {
 	},
 
 	move: function() {
-		this.board[this.y][this.x].classList.remove('selected');
+		/**this.board[this.y][this.x].classList.remove('selected');**/
 
 		let newX = this.x + this.speedX;
 		if ( newX>=0 && newX< this.width ){
@@ -46,10 +46,15 @@ window.board = {
 		} else {
 			return false;
 		}
+		
 		let newY = this.y + this.speedY;
 		if ( newY>=0 && newY< this.height ){
 			this.y=newY;
 		} else {
+			return false;
+		}
+
+		if( this.board[this.y][this.x].classList.contains('selected')){
 			return false;
 		}
 
