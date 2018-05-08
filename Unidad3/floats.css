@@ -1,0 +1,12 @@
+.floats div {
+	width:100px;
+	height: 100px;
+	background-color:#777;
+	color:white;
+	clear:left;
+}
+.floats :nth-child(1) {
+	float:left;
+	background-color:#550055;
+	
+}

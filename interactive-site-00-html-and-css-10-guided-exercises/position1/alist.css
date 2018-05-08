@@ -1,0 +1,35 @@
+div {
+	width:5em;
+	height:5em;
+	
+}
+
+#box_1 {
+	background-color: red;
+}
+#box_2 {
+	background-color: green;
+    position:fixed;
+    bottom:0;
+}
+
+
+
+
+
+
+
+
+
+
+#box_3 {
+	background-color: blue;
+	bottom:0;
+	right: 0;
+}
+#box_4 {
+	background-color: purple;
+	bottom:0;
+	left:0;
+
+}

@@ -1,0 +1,28 @@
+
+body div {
+	/**outline: 1em solid blue;**/
+    /**padding: 2em;**/
+}
+
+body > div {
+    background-color: red;
+    width: 30em;
+    height: 30em;
+    padding:7.5em;
+    box-sizing: border-box;
+}
+
+body > div > div {
+	background-color: purple;
+	width:15em;
+	height: 15em;	
+}
+
+#flotante {
+	float:left;
+	background-color: black;
+	width: 7.5em;
+	height: 7.5em;
+	padding: 0;
+}
+

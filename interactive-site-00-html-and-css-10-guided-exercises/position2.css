@@ -1,0 +1,20 @@
+body :first-child {
+	float:left;
+	width:100px;
+	height:100px;
+	background-color: #000; 
+}
+body :last-child {
+	box-sizing: border-box;
+	width:400px;
+	height:400px;
+	padding:100px;
+	background-color:#00f;
+}
+
+body :last-child > div {
+	background-color: #0f0;
+	width:200px;
+	height:200px;
+}
+

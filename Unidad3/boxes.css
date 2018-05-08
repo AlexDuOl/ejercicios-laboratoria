@@ -1,0 +1,31 @@
+
+
+
+.flag {
+	margin:1em;
+	box-sizing: border-box;
+	outline: 1px solid blue;
+}
+
+.flag :first-child , .flag :last-child{
+	background-color: #551a8b;
+	color: white;
+}
+
+#block div, #block_half div{
+	display:block;
+	height: 10vh;
+}
+
+#block_half div {
+	width:50%;
+}
+
+#inline_block div {
+	display: inline-block;
+	height: 10vh;
+	width: 33%;
+}
+#inline div {
+	display: inline;
+}

@@ -1,0 +1,36 @@
+#container {
+	width:900px;
+	margin: 0 auto;
+}
+
+#nav {
+	height:50px;
+	background-color: #AFA;
+}
+#nav > a {
+	display:block;
+	float:left;
+	height:50px;
+	padding: 0 20px;
+	outline: 1px solid red;
+}
+#content {
+	position: relative;
+	padding: 50px 250px 50px 50px;	
+}
+#aside {
+	position: absolute;
+	width:200px;
+	right:-30px;
+	top:30px;
+	background-color: #FAA;
+	color:white;
+}
+
+#footer {
+	position:fixed;
+	bottom:0;
+	width:900px;
+	background-color: #499; 
+}
+

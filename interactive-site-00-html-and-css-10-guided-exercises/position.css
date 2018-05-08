@@ -1,0 +1,17 @@
+body > div {
+	width:400px;
+	height:400px;
+	background-color: #F00;
+}
+
+body > div > div {
+	width:200px;
+	height:200px;
+	background-color: #A0A;
+}
+
+body > div > div > div {
+	width:100px;
+	height:100px;
+	background-color: #FF0;
+}

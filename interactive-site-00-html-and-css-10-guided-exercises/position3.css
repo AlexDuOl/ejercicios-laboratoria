@@ -1,0 +1,18 @@
+body > div {
+	width:400px;
+	height:400px;
+	background-color:#00f;
+}
+
+body > div > :first-child {
+	height: 100px;
+	width: 100px;
+	background: #000;
+}
+
+body > div > :last-child {
+	height: 200px;
+	width: 200px;
+	background-color:#0F0;
+	margin-left:100px;
+}
