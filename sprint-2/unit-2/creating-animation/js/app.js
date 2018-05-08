@@ -5,6 +5,8 @@ window.board = {
 	board:null,
 	x:0,
 	y:0,
+	speedX:0,
+	speedY:0,
 
 	load: function(element, width, height) {
 
@@ -30,7 +32,31 @@ window.board = {
 		this.move(0,0);
 	},
 
-	move: function(deltaX,deltaY) {
+	direction: function(speedX,speedY) {
+		this.speedX=speedX;
+		this.speedY=speedY;
+	},
+
+	move: function() {
+		this.board[this.y][this.x].classList.remove('selected');
+
+		let newX = this.x + this.speedX;
+		if ( newX>=0 && newX< this.width ){
+			this.x=newX;
+		} else {
+			return false;
+		}
+		let newY = this.y + this.speedY;
+		if ( newY>=0 && newY< this.height ){
+			this.y=newY;
+		} else {
+			return false;
+		}
+
+		this.board[this.y][this.x].classList.add('selected');
+		return true;
+	},
+	move_old: function(deltaX,deltaY) {
 		this.board[this.y][this.x].classList.remove('selected');
 
 		let newX = this.x + deltaX;
