@@ -1,0 +1,11 @@
+div {
+	height:2em;
+}
+
+span {
+	display:inline-block;
+	outline:1px solid red;
+	width:2em;
+	height:100%;
+}
+
