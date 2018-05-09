@@ -4,7 +4,7 @@ div {
 
 span {
 	display:inline-block;
-	outline:1px solid grey;
+	outline:1px solid #CCC;
 	width:1em;
 	height:100%;
 }
