@@ -1,24 +1,17 @@
 window.onload = function() {
+	const modal = document.getElementById('portfolioModal');
+	showModal(modal);
 	
-	let images = document.getElementsByClassName('portafolio-image');
-	for(i=0;i<images.length;i++){
-		images[i].addEventListener('click',showModal);
-	}
+	const closeButton = modal.getElementsByClassName('close')[0];
+	closeButton.addEventListener('click', function(){
+		hideModal(modal);
+	});
 
-	function showModal() {
-		let modal = document.getElementById('portafolioModal');
-		let imgModal = modal.getElementsByTagName('img')[0];
-		let captionModal = modal.getElementsByClassName('caption')[0];
-		let closeModal = modal.getElementsByClassName('close')[0];
-		
-		imgModal.src = this.src;
-		captionModal.textContent = this.alt;
-		closeModal.addEventListener('click', hideModal);
+	function showModal(modal) {
 		modal.style.display = "block";
 	}
 
-	function hideModal() {
-		let modal = document.getElementById('portafolioModal');
+	function hideModal(modal) {
 		modal.style.display = "none";
 	}
 }
