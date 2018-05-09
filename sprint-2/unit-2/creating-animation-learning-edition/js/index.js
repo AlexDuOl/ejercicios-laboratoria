@@ -5,4 +5,5 @@ window.onload = function() {
   let player=  createPlayer(2,2,"blue",board);
   player.draw();
   window.board=board;
+  window.player=player;
 };

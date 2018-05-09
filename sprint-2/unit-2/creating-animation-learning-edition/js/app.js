@@ -33,7 +33,18 @@ window.createPlayer = function(x, y, color, board) {
 	}
 
 	player.draw = function() {
-		board.grid[this.y][this.x].className=this.color;
+		this.board.grid[this.y][this.x].className=this.color;
+	}
+	
+	player.erase = function() {
+		this.board.grid[this.y][this.x].className="";
+	}
+	
+	player.move = function(x,y) {
+		this.erase();
+		this.x+=x;
+		this.y+=y
+		this.draw();
 	}
 
 	return player;
