@@ -1,15 +1,19 @@
 div {
-	height:2em;
+	height:1em;
 }
 
 span {
 	display:inline-block;
-	outline:1px solid red;
-	width:2em;
+	outline:1px solid grey;
+	width:1em;
 	height:100%;
 }
 
 span.blue {
 	background-color:#44F;
+}
+
+span.red {
+	background-color:#F44;
 }
 
