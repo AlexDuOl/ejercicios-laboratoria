@@ -29,7 +29,8 @@ window.onload = function() {
 	let step = setInterval(function(){
 		if (!player.move()) {
 			clearInterval(step);
-			console.log('Crashed!');
+			alert("Crashed!");
+			location.reload();
 		}
 	},100);
 };

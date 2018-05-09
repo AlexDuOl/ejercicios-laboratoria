@@ -58,7 +58,10 @@ window.createPlayer = function(x, y, color, board) {
 			return false;
 		}
 		
-		this.erase();
+		if(this.board.grid[newY][newX].className!=="") {
+			return false;
+		}
+		
 		this.x += this.speedX;
 		this.y += this.speedY;
 		this.draw();
