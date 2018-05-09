@@ -1,23 +1,40 @@
-window.board = {
-	element: null,
-	width: null,
-	height: null,
-	grid: null,
+window.createBoard = function(element, width, height){
+	
+	let board = {
+		element: element,
+		width: width,
+		height: height,
+		grid: null
+	}
 
-	load: function(element, width, height) {
+	board.grid=[];
+	for (let y=0; y<board.height; y++) {
+		let row = document.createElement('div');
+		element.appendChild(row);
+		board.grid[y]=[]
 
-		this.element = element;
-		this.width   = width;
-		this.height  = height;
-
-		this.grid=[];
-		for (let y=0; y<this.height; y++) {
-			let row = document.createElement('div');
-			element.appendChild(row);
-			for (let x=0; x<this.width;x++) {
-				let cell = document.createElement('span');
-				row.appendChild(cell);
-			}
+		for (let x=0; x<board.width;x++) {
+			let cell = document.createElement('span');
+			row.appendChild(cell);
+			board.grid[y][x]=cell;
 		}
-	},
+	}
+	
+	return board;
+}
+
+window.createPlayer = function(x, y, color, board) {
+	
+	let player = {
+		x:x,
+		y:y,
+		color:color,
+		board:board,
+	}
+
+	player.draw = function() {
+		board.grid[this.y][this.x].className=this.color;
+	}
+
+	return player;
 }
