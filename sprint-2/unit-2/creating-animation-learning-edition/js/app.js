@@ -43,7 +43,7 @@ window.createPlayer = function(x, y, color, board) {
 	player.move = function(x,y) {
 		this.erase();
 		this.x+=x;
-		this.y+=y
+		this.y+=y;
 		this.draw();
 	}
 
