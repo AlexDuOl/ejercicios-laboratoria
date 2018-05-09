@@ -4,8 +4,11 @@
 	height:1em;
 	outline:1px solid #CCC;
 }
-.cell.selected {
+.cell.blue {
 	background-color: #44F; 
+}
+.cell.red {
+	background-color: #F44; 
 }
 .row {
 	clear:left;
