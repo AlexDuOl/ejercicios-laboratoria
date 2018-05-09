@@ -1,6 +1,6 @@
 window.onload = function() {
 	let main = document.getElementsByTagName('main')[0];
-	let board = createBoard(main, 5, 5);
+	let board = createBoard(main, 30, 20);
 
 	let player=  createPlayer(2,2,"blue",board);
 	player.draw();
@@ -24,4 +24,11 @@ window.onload = function() {
 			break;
 		}
 	});
+
+	let step = setInterval(function(){
+		if (!player.move(1,0)) {
+			clearInterval(step);
+			console.log('Crashed!');
+		}
+	},100);
 };
