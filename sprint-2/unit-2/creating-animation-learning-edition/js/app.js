@@ -30,6 +30,8 @@ window.createPlayer = function(x, y, color, board) {
 		y:y,
 		color:color,
 		board:board,
+		speedX:0,
+		speedY:0,
 	}
 
 	player.draw = function() {
@@ -40,21 +42,27 @@ window.createPlayer = function(x, y, color, board) {
 		this.board.grid[this.y][this.x].className = "";
 	}
 	
-	player.move = function(x,y) {
-		let newX = this.x+x;
+	player.direction = function(x,y) {
+		this.speedX = x;
+		this.speedY = y;
+	}
+	
+	player.move = function() {
+		let newX = this.x+this.speedX;
 		if (newX<0 || newX>=this.board.width) {
 			return false;
 		}
 
-		let newY = this.y+y;
+		let newY = this.y+this.speedY;
 		if (newY<0 || newY>=this.board.height) {
 			return false;
 		}
 		
 		this.erase();
-		this.x += x;
-		this.y += y;
+		this.x += this.speedX;
+		this.y += this.speedY;
 		this.draw();
+	
 		return true;
 	}
 

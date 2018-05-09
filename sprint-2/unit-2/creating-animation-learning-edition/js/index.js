@@ -4,6 +4,7 @@ window.onload = function() {
 
 	let player=  createPlayer(2,2,"blue",board);
 	player.draw();
+	player.direction(1,0);
 	window.board=board;
 	window.player=player;
 
@@ -11,22 +12,22 @@ window.onload = function() {
 	document.addEventListener('keypress', function(e){
 		switch(e.key){
 			case "ArrowUp":
-			player.move(0,-1);
+			player.direction(0,-1);
 			break;
 			case "ArrowDown":
-			player.move(0,1);
+			player.direction(0,1);
 			break;
 			case "ArrowLeft":
-			player.move(-1,0);
+			player.direction(-1,0);
 			break;
 			case "ArrowRight":
-			player.move(1,0);
+			player.direction(1,0);
 			break;
 		}
 	});
 
 	let step = setInterval(function(){
-		if (!player.move(1,0)) {
+		if (!player.move()) {
 			clearInterval(step);
 			console.log('Crashed!');
 		}
