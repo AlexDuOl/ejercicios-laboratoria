@@ -1,5 +1,4 @@
 window.onload = function() {
-	
 	const images = document.getElementsByClassName('portafolio-image');
 	for(i=0;i<images.length;i++){
 		images[i].addEventListener('click', function() {

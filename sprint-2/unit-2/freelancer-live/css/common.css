@@ -1,0 +1,121 @@
+/*
+* Estilos reutilizables
+*/
+* {
+  box-sizing: border-box;
+  font-family: Montserrat;
+  margin: 0px;
+  padding: 0;
+}
+
+.container {
+  width:100%;
+  padding: 0;
+  margin: 0px auto;
+}
+
+.row:before, .row:after {
+  content: " ";
+  display: table;
+}
+
+.row:after {
+  clear: both;
+}
+
+[class*="col-"] {
+  min-height: 7px;
+  padding: 12px;
+  float: left;
+}
+
+.col-1 {
+  width: 8.333%;
+}
+
+.col-2 {
+  width: 16.666%;
+}
+
+.col-3 {
+  width: 25%;
+}
+
+.col-4 {
+  width: 33.333%;
+}
+
+.col-5 {
+  width: 41.666%;
+}
+
+.col-6 {
+  width: 50%;
+}
+
+.col-7 {
+  width: 58.333%;
+}
+
+.col-8 {
+  width: 66.666%;
+}
+
+.col-9 {
+  width: 75%;
+}
+
+.col-10 {
+  width:  83.333%;
+}
+
+.col-11 {
+  width: 91.666%;
+}
+
+.col-12 {
+  width: 100%;
+}
+
+.align-center {
+  text-align: center;
+}
+
+.text-white {
+  color: white;
+}
+
+.text-blue {
+  color: #333;
+}
+
+.aqua {
+  background-color: #18BC9C;
+}
+
+.blue {
+  background-color: #333;
+}
+
+.white {
+  background-color: white;
+}
+
+.star {
+  display: inline-block;
+  margin-bottom: 4%;
+  height: 5px;
+  vertical-align: middle;
+  width: 100px;
+}
+
+.subtitles {
+  font-size: 55px;
+  font-weight: bold;
+}
+
+.line-form {
+  background-color: #EEE;
+  height: 2px;
+  margin-bottom: 5%;
+}
