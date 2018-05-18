@@ -22,9 +22,10 @@ window.createBoard = function(element, width, height) {
 	return board;
 }
 
-window.createPlayer = function(x ,y, color, board) {
+window.createPlayer = function(name, x ,y, color, board) {
 
 	let player = {
+		name: name,
 		x:x,
 		y:y,
 		color: color,

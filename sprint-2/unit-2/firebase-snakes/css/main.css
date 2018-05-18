@@ -1,13 +1,21 @@
 body{
 	margin:0;
+	font-family: Arial, Helvetica, sans-serif;
 }
+#leave-game-form {
+	display: none;
+}
+main > .row {
+	text-align: center;
+}
+
 div.row {
-	height:1vw;
+	height:1.5vw;
 }
 
 div.row > span {
 	display:inline-block;
-	width: 1vw;
+	width: 1.5vw;
 	height: 100%;
 }
 
@@ -19,6 +27,9 @@ div.row:nth-child(even) > span:nth-child(even) {
 	background-color: #EEE;
 }
 
+#black {
+	background-color: #000;
+}
 #red {
 	background-color: #F44;
 }
@@ -38,3 +49,34 @@ div.row:nth-child(even) > span:nth-child(even) {
 #yellow {
 	background-color: #AA0;
 }
+
+#players > p {
+	display:inline-block;
+	color:white;
+	padding:0.5em;
+	margin: 0.5em;
+	border-radius: 5px;
+}
+
+[data-color="black"] {
+	background-color: #000;
+}
+[data-color="red"] {
+	background-color: #F44;
+}
+[data-color="green"] {
+	background-color: #0A0;
+}
+[data-color="blue"] {
+	background-color: #44F;
+}
+[data-color="pink"] {
+	background-color: #F4F;
+}
+[data-color="cyan"] {
+	background-color: #0AA;
+}
+[data-color="yellow"] {
+	background-color: #AA0;
+}
+
