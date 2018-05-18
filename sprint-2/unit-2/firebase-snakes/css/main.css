@@ -1,0 +1,20 @@
+div.row {
+	height:1em;
+	/*outline:1px solid blue;*/
+}
+
+div.row > span {
+	display:inline-block;
+	outline:1px solid #CCC;
+	width: 1em;
+	height: 100%;
+}
+
+span.blue {
+	background-color:#44F;
+}
+
+span.red {
+	background-color:#F44;
+}
+
