@@ -1,39 +1,57 @@
 window.onload = function() {
-	var board = createBoard(
+	let colors= ['red','green', 'blue', 'pink', 'yellow', 'cyan'];
+	
+	let board = createBoard(
 		document.getElementsByTagName('main')[0],
-		30, 20
+		99, 70
 	);
+	
+	
+	// Initialize Firebase
+	let config = {
+		apiKey: "AIzaSyCVk927JYDHITwqQCJEIZa9PRgvQh0AlnU",
+		authDomain: "lab-4af3a.firebaseapp.com",
+		databaseURL: "https://lab-4af3a.firebaseio.com",
+		projectId: "lab-4af3a",
+		storageBucket: "lab-4af3a.appspot.com",
+		messagingSenderId: "31504656641"
+	};
+	firebase.initializeApp(config);
+	
+	let players=[];
+	let firebasePlayersRef = firebase.database().ref().child('players');
+	
+	firebasePlayersRef.on('child_added', function(snap){
+		let values = snap.val();
+		players[values.color] = createPlayer(values.x,values.y, values.color, board);
+	});
 
-	let player1 = createPlayer(10, 5, -1, 0, "blue", board);
-	let player2 = createPlayer(20, 5, 1, 0, "red", board);	
+	firebasePlayersRef.on('child_changed', function(snap){
+		let values = snap.val();
+		players[values.color].set(values.x,values.y);
+	});
 
-	window.addEventListener('keypress', function(e) {
+	firebasePlayersRef.on('child_removed', function(snap){
+		let values = snap.val();
+		players[values.color].erase(values.x,values.y);
+		players.splice(values.color,1);
+	});
+
+	/* window.addEventListener('keypress', function(e) {
 		switch(e.key){
-			case "w":
-			player1.move(0,-1);
-			break;
-			case "s":
-			player1.move(0,1);
-			break;
-			case "a":
-			player1.move(-1,0);
-			break;
-			case "d":
-			player1.move(1,0);
-			break;
 			case "ArrowUp":
-			player2.move(0,-1);
+			player.move(0,-1);
 			break;
 			case "ArrowDown":
-			player2.move(0,1);
+			player.move(0,1);
 			break;
 			case "ArrowLeft":
-				player2.move(-1,0);
+			player.move(-1,0);
 			break;
 			case "ArrowRight":
-			player2.move(1,0);
+			player.move(1,0);
 			break;
 		}
-
-	});
+		
+	}); */
 };

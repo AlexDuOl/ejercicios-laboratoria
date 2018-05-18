@@ -1,20 +1,40 @@
+body{
+	margin:0;
+}
 div.row {
-	height:1em;
-	/*outline:1px solid blue;*/
+	height:1vw;
 }
 
 div.row > span {
 	display:inline-block;
-	outline:1px solid #CCC;
-	width: 1em;
+	width: 1vw;
 	height: 100%;
 }
 
-span.blue {
-	background-color:#44F;
+div.row:nth-child(odd) > span:nth-child(odd) {
+	background-color: #EEE;
 }
 
-span.red {
-	background-color:#F44;
+div.row:nth-child(even) > span:nth-child(even) {
+	background-color: #EEE;
 }
 
+#red {
+	background-color: #F44;
+}
+#green {
+	background-color: #4F4;
+}
+#blue {
+	background-color: #44F;
+}
+#pink {
+	background-color: #F4F;
+}
+
+#cyan {
+	background-color: #4FF;
+}
+#yellow {
+	background-color: #FF4;
+}
