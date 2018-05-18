@@ -47,10 +47,10 @@ window.createPlayer = function(x ,y, directionX, directionY, color, board) {
 		player.directionY = y;
 	}
 	
-	player.move = function() {
+	player.move = function(x,y) {
 
-		let newX = player.x + player.directionX;
-		let newY = player.y + player.directionY;
+		let newX = player.x + x;
+		let newY = player.y + y;
 
 		if(newX >= player.board.width || newX<0) {
 			return false;
@@ -63,7 +63,7 @@ window.createPlayer = function(x ,y, directionX, directionY, color, board) {
 		if ( this.board.grill[newY][newX].className!== "") {
 			return false;
 		}
-
+		player.erase();
 		player.x = newX;
 		player.y = newY;
 		player.draw();
