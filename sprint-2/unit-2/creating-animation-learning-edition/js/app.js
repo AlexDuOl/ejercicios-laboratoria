@@ -1,73 +1,77 @@
-window.createBoard = function(element, width, height){
-	
+window.createBoard = function(element, width, height) {
 	let board = {
-		element: element,
+	element: element,
 		width: width,
 		height: height,
-		grid: null
+		grill: [],
 	}
 
-	board.grid=[];
-	for (let y=0; y<board.height; y++) {
-		let row = document.createElement('div');
-		element.appendChild(row);
-		board.grid[y]=[]
 
-		for (let x=0; x<board.width;x++) {
+	for (y=0; y<board.height; y++) {
+		let row = document.createElement('div');
+		row.className='row';
+		element.appendChild(row);
+		board.grill[y] = [];
+
+		for (x=0; x< board.width; x++){
 			let cell = document.createElement('span');
 			row.appendChild(cell);
-			board.grid[y][x]=cell;
+			board.grill[y][x]=cell;
 		}
 	}
-	
+
 	return board;
 }
 
-window.createPlayer = function(x, y, color, board) {
-	
+window.createPlayer = function(x ,y, directionX, directionY, color, board) {
+
 	let player = {
 		x:x,
 		y:y,
-		color:color,
-		board:board,
-		speedX:0,
-		speedY:0,
+		color: color,
+		board: board,
+		directionX: directionX,
+		directionY: directionY
 	}
 
-	player.draw = function() {
-		this.board.grid[this.y][this.x].className = this.color;
+	player.draw = function(){
+		player.board.grill[player.y][player.x].className = player.color;
 	}
-	
-	player.erase = function() {
-		this.board.grid[this.y][this.x].className = "";
+
+	player.erase = function(){
+		player.board.grill[player.y][player.x].className = "";
 	}
-	
-	player.direction = function(x,y) {
-		this.speedX = x;
-		this.speedY = y;
+
+	player.direction = function(x,y){
+		player.directionX = x;
+		player.directionY = y;
 	}
 	
 	player.move = function() {
-		let newX = this.x+this.speedX;
-		if (newX<0 || newX>=this.board.width) {
+
+		let newX = player.x + player.directionX;
+		let newY = player.y + player.directionY;
+
+		if(newX >= player.board.width || newX<0) {
 			return false;
 		}
 
-		let newY = this.y+this.speedY;
-		if (newY<0 || newY>=this.board.height) {
+		if(newY >= player.board.height || newY<0) {
 			return false;
 		}
-		
-		if(this.board.grid[newY][newX].className!=="") {
+
+		if ( this.board.grill[newY][newX].className!== "") {
 			return false;
 		}
-		
-		this.x += this.speedX;
-		this.y += this.speedY;
-		this.draw();
-	
+
+		player.x = newX;
+		player.y = newY;
+		player.draw();
+
 		return true;
 	}
+	
+	player.draw();
 
 	return player;
-}
+}	

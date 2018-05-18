@@ -1,55 +1,53 @@
 window.onload = function() {
-	let main = document.getElementsByTagName('main')[0];
-	let board = createBoard(main, 60, 40);
+	var board = createBoard(
+		document.getElementsByTagName('main')[0],
+		30, 20
+	);
 
-	let player = createPlayer(Math.floor(board.width/2)+5,Math.floor(board.height/2),"blue",board);
-	player.direction(1,0);
+	let player1 = createPlayer(10, 5, -1, 0, "blue", board);
+    let player2 = createPlayer(20, 5, 1, 0, "red", board);	
 
-	let player2 = createPlayer(Math.floor(board.width/2)-5,Math.floor(board.height/2),"red",board);
-	player2.direction(-1,0);
-
-	document.addEventListener('keypress', function(e){
+	window.addEventListener('keypress', function(e) {
 		switch(e.key){
-			case "ArrowUp":
-			player.direction(0,-1);
-			break;
-			case "ArrowDown":
-			player.direction(0,1);
-			break;
-			case "ArrowLeft":
-			player.direction(-1,0);
-			break;
-			case "ArrowRight":
-			player.direction(1,0);
-			break;
 			case "w":
-			player2.direction(0,-1);
+			player1.direction(0,-1);
 			break;
 			case "s":
-			player2.direction(0,1);
+			player1.direction(0,1);
 			break;
 			case "a":
-			player2.direction(-1,0);
+			player1.direction(-1,0);
 			break;
 			case "d":
+			player1.direction(1,0);
+			break;
+			case "ArrowUp":
+			player2.direction(0,-1);
+			break;
+			case "ArrowDown":
+			player2.direction(0,1);
+			break;
+			case "ArrowLeft":
+			player2.direction(-1,0);
+			break;
+			case "ArrowRight":
 			player2.direction(1,0);
 			break;
 		}
+
 	});
 
-	let step = setInterval(function(){
-		if (!player.move()) {
-			clearInterval(step);
-			alert("Crashed Blue!");
+	var tick = setInterval(function(){
+		if (!player1.move()) {
+			clearInterval(tick);
+			alert('Red Win!');
 			location.reload();
 		}
-	},100);
 
-	let step2 = setInterval(function(){
 		if (!player2.move()) {
-			clearInterval(step2);
-			alert("Crashed Red!");
+			clearInterval(tick);
+			alert('Blue Wins!');
 			location.reload();
 		}
-	},100);
+	}, 200);
 };

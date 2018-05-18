@@ -1,12 +1,13 @@
-div {
+div.row {
 	height:1em;
+	/*outline:1px solid blue;*/
 }
 
-span {
+div.row > span {
 	display:inline-block;
 	outline:1px solid #CCC;
-	width:1em;
-	height:100%;
+	width: 1em;
+	height: 100%;
 }
 
 span.blue {
