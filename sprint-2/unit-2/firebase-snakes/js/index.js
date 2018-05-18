@@ -1,6 +1,11 @@
 window.onload = function() {
 	let colors= ['red','green', 'blue', 'pink', 'yellow', 'cyan'];
 	
+	colors.map((color) => {
+		addOption(color);
+	});
+	
+
 	let board = createBoard(
 		document.getElementsByTagName('main')[0],
 		99, 70
@@ -18,12 +23,14 @@ window.onload = function() {
 	};
 	firebase.initializeApp(config);
 	
-	let players=[];
+	window.players=[];
 	let firebasePlayersRef = firebase.database().ref().child('players');
 	
 	firebasePlayersRef.on('child_added', function(snap){
 		let values = snap.val();
 		players[values.color] = createPlayer(values.x,values.y, values.color, board);
+		
+		removeOption(values.color);
 	});
 
 	firebasePlayersRef.on('child_changed', function(snap){
@@ -35,9 +42,15 @@ window.onload = function() {
 		let values = snap.val();
 		players[values.color].erase(values.x,values.y);
 		players.splice(values.color,1);
+		
+		addOption(color);
 	});
 
-	/* window.addEventListener('keypress', function(e) {
+	document.getElementById('join-button').addEventListener('click', function() {
+		document.getElementById('select-player-modal').style.display="block";
+	});
+		
+	window.addEventListener('keypress', function(e) {
 		switch(e.key){
 			case "ArrowUp":
 			player.move(0,-1);
@@ -53,5 +66,18 @@ window.onload = function() {
 			break;
 		}
 		
-	}); */
+	});
+
+	function addOption(color){
+		playerSelect = document.getElementById('player-select');
+		let option = document.createElement('option');
+		option.value=color;
+		option.textContent=color;
+		playerSelect.appendChild(option);
+	};
+	
+	function removeOption(color){
+		playerSelect = document.getElementById('player-select');
+		playerSelect.querySelector('[value='+color+']').remove();
+	};
 };
